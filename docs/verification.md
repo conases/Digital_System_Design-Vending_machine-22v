@@ -34,7 +34,7 @@
 | `make test-ui` | 실제 app.js 입력/렌더 함수→HTTP→Verilator 잔액1700·56세그먼트 상태·발권 이벤트·재생·오류표시 통과 | evidence/ui-test.log |
 | UI 시퀀스/파형 대조 | 같은 명령으로 직접 RTL 실행과 HTTP UI 출력 일치. 실제 issue VCD 시각5620ns와 JSON 이벤트 일치 | evidence/bridge-test.log; build/bridge.vcd |
 | 모델 종료 | 실제 모델 프로세스 종료 후 연결 오류 발생; 가짜 정상 응답 없음 | evidence/bridge-test.log |
-| 깨끗한 소스 사본 | 기존 build/PDF/ZIP 없이 같은 설치 도구 환경에서 baseline·baseline-hardware·lint·test·sim 전체 통과 | evidence/clean-checkout.log |
+| 깨끗한 소스 사본 | 기존 build/PDF/ZIP 없이 같은 설치 도구 환경에서 baseline·baseline-hardware·lint·test·sim 및 별도 test-ui 통과 | evidence/clean-checkout.log, clean-ui.log |
 | 실제 브라우저 | 미검증: in-app/Chrome 사용 불가, 환경 inventory/Safari 제어 timeout | 육안 클릭·반응형 레이아웃·스크린샷 미확보 |
 | FPGA / Quartus | 미수행 | 합성·배치배선·STA·보드 검증 필요 |
 

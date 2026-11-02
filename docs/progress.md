@@ -31,3 +31,10 @@
 과거 STA는 자동1ns 클록 제약이므로50MHz 타이밍 결과로 판단할 수 없다. 다음 보드 단계는 수정 파일 목록·20ns SDC·물리 입력/reset 제약 준비 후 Quartus 검증이다. PDF 공개 권한 확인 전 업로드 보류를 유지한다.
 
 작업 브랜치는 `restore/rtl-verification`이며 기본 main은 변경하지 않는다. 원격 main은 시작 커밋과 일치하고 SSH 읽기 접근을 확인했다. 최종 push 결과는 이 문서의 원격 업로드 기록과 최종 응답에 남긴다.
+
+## 원격 업로드 기록
+
+- 2026-11-02: `git push -u origin restore/rtl-verification` 성공. 첫 업로드 커밋 `1c2258ef31fed1ecb791a7b8be5f7252e8993177`. origin에 새 작업 브랜치가 생성되고 upstream 추적이 설정됐다.
+- main은 `135ea32efe8edd4786e8f5a0df9449e75a9492f0`로 유지했다. 강제 push나 기본 브랜치 덮어쓰기는 수행하지 않았다.
+- 깨끗한 소스 사본의 test-ui도 성공. 원본 보존 체크 통과. PDF·ZIP·build·private 보존물은 추적 파일에 없다.
+- 이 기록을 포함한 최종 문서 커밋도 같은 작업 브랜치에 일반 push하고 원격 SHA와 HEAD 일치를 확인한다. 최종 커밋 ID는 Git 이력과 최종 응답을 참조한다.
