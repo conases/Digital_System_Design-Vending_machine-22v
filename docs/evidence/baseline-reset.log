@@ -1,0 +1,3 @@
+VCD info: dumpfile build/reset.vcd opened for output.
+FATAL: tb/regression.sv:12:                            reset: Ticket must reset to zero sum=0 state=0 ticket=x
+       Time: 160000  Scope: regression.check

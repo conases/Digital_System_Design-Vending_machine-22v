@@ -1,0 +1,3 @@
+VCD info: dumpfile build/ticket.vcd opened for output.
+FATAL: tb/regression.sv:12:                           ticket: issuance LED must remain on until next selection sum=1700 state=5 ticket=0
+       Time: 2600000  Scope: regression.check

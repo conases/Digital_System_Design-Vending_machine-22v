@@ -8,7 +8,7 @@ p=subprocess.run(cmd,cwd=root,text=True,capture_output=True,timeout=30)
 (build/'baseline-compile.log').write_text(p.stdout+p.stderr)
 if p.returncode: sys.exit(p.returncode)
 failed=[]
-for case in ['reset','fsm','held','digit1']:
+for case in ['reset','fsm','held','digit1','ticket']:
  p=subprocess.run(['vvp','build/baseline.vvp',f'+CASE={case}'],cwd=root,text=True,capture_output=True,timeout=30)
  (build/f'baseline-{case}.log').write_text(p.stdout+p.stderr)
  v=build/f'{case}.vcd'
