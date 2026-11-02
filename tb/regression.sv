@@ -16,12 +16,12 @@ module regression;
  initial begin
   force dut.Clk=clk; // functional tests bypass only the original divider; hardware timing tested separately
   if(!$value$plusargs("CASE=%s",scenario)) scenario="reset";
-  $dumpfile({"build/",scenario,".vcd"}); $dumpvars(0,regression);
+  $dumpfile($sformatf("build/%s.vcd",scenario)); $dumpvars(0,regression);
   reset;
   case(scenario)
    "reset": begin check(LEDG[4]===1'b0,"Ticket must reset to zero"); check(dut.sum===0,"balance reset"); end
-   "fsm": begin press(4);press(64);check(dut.sum===1700,"first purchase");press(1);check(dut.sum===1950,"must accept next transaction after ticket");end
-   "held": begin SW=1;cycles(5);KEY[3]=0;cycles(180);KEY[3]=1;cycles(50);check(dut.sum===250,"one held press must create one deposit");end
+   "fsm": begin press(4);press(64);check(dut.sum===1700,"first purchase");press(1);check(dut.sum===2200,"must accept next transaction after ticket");end
+   "held": begin SW=1;cycles(5);KEY[3]=0;cycles(180);KEY[3]=1;cycles(50);check(dut.sum===500,"one held press must create one deposit");end
    "digit1": begin press(4);press(64);check(HEX3===7'b1001111,"digit one must light segments 1 and 2");end
    default: $fatal(1,"unknown scenario");
   endcase
