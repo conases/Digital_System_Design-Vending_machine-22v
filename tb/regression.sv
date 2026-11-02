@@ -27,6 +27,7 @@ module regression;
    "fsm": begin force dut.D1.State=3'd7;force dut.D1.IN=1'b1;#1;check(dut.D1.NextState===3'd1,"S7 must accept next press (unit state injection)");release dut.D1.State;release dut.D1.IN;end
    "ticket": begin press(4);press(64);check(LEDG[4]===1'b1,"issuance LED must remain on until next selection");end
    "held": begin SW=1;cycles(5);KEY[3]=0;cycles(180);KEY[3]=1;cycles(50);check(dut.sum===500,"one held press must create one deposit");end
+   "recovery": begin force dut.D1.State=3'bxxx;#1;check(dut.D1.NextState===3'b000,"unknown FSM state must select S0");release dut.D1.State;end
    "display": begin
     press(4);SW=1;cycles(5);KEY[3]=0;
     repeat(50)begin cycles(1);check({HEX3,HEX2,HEX1,HEX0}==={7'b0100100,7'b0000001,7'b0000001,7'b0000001} || {HEX3,HEX2,HEX1,HEX0}==={7'b0100100,7'b0100100,7'b0000001,7'b0000001},"display must hold a completed decimal balance during conversion");end

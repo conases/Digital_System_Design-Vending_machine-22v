@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""入力 RTL/source hash が同じときだけ既存実行モデルを再使用する。"""
+"""RTL 소스 해시가 같을 때만 기존 실행 모델을 재사용한다."""
 import hashlib,json,pathlib,subprocess,sys
 root=pathlib.Path(__file__).resolve().parents[1]
 mode=sys.argv[1] if len(sys.argv)>1 else 'demo'
@@ -12,7 +12,7 @@ out=root/'build'/f'model-{mode}';meta=out/'version.json';exe=out/'Vboard_model'
 if exe.exists() and meta.exists() and json.loads(meta.read_text())['source_sha256']==fingerprint:
  print(f'{mode}: 기존 RTL 모델 사용');raise SystemExit(0)
 out.mkdir(parents=True,exist_ok=True)
-cmd=['verilator','--cc','--exe','--build','--trace','--Wall','--top-module','board_model',f'-GDIV_BITS={div}','--Mdir',str(out),'-f','sim/rtl.f','sim/board_model.sv',str(root/'sim/main.cpp'),'-CFLAGS','-std=c++17']
+cmd=['verilator','--cc','--exe','--build','--trace','--timescale','1ns/1ns','--Wall','--top-module','board_model',f'-GDIV_BITS={div}','--Mdir',str(out),'-f','sim/rtl.f','sim/board_model.sv',str(root/'sim/main.cpp'),'-CFLAGS','-std=c++17']
 p=subprocess.run(cmd,cwd=root,text=True,capture_output=True,timeout=180)
 (out/'build.log').write_text(p.stdout+p.stderr)
 if p.returncode:print(p.stdout+p.stderr);raise SystemExit(p.returncode)

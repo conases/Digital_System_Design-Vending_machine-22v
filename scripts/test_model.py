@@ -26,8 +26,16 @@ def run():
    for sw in (4,64):
     model.step(8,15,sw);model.step(6,7,sw);s=model.step(220,15,sw)
     b,c6,c7,issue=next_expected(b,c6,c7,sw);check(s,b,c6,c7,'count-nine')
+  # 사용자 선택: 10~15의 원본 비십진 패턴과 16의 4비트 rollover를 그대로 보존한다.
+  for overflow_count in range(10,17):
+   for sw in (4,64):
+    model.step(8,15,sw);model.step(6,7,sw);s=model.step(220,15,sw)
+   expected=overflow_count%16
+   assert s['count6']==expected
+   assert s['hex'][6]==(0b1000010 if expected>=10 else expected_hex(0,expected,0)[6])
+  model.step(5,6,4);s=model.step(8,15,0);check(s,0,0,0,'simultaneous reset and input')
   model.step(5,14,0);model.step(8,15,1);model.step(600,7,1);s=model.step(220,15,1);check(s,500,0,0,'long press')
-  print(f'PASS Verilator demo: {count} scenarios, {steps} transactions; ticket count 0..9; held press')
+  print(f'PASS Verilator demo: {count} scenarios, {steps} transactions; ticket count 0..9 plus preserved overflow 10..16; held press; reset priority')
  finally:model.close()
  # 원래 분주값: enable phase와 간격을 RTL 출력으로 관찰. 짧은 펄스도 포함.
  hw=Model('hardware')

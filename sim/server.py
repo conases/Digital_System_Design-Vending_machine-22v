@@ -28,7 +28,7 @@ class Model:
    with (ROOT/'build'/'session.jsonl').open('a')as f:f.write(json.dumps(record)+'\n')
    return result
  def close(self):
-  self.process.stdin.close()
+  if not self.process.stdin.closed:self.process.stdin.close()
   try:self.process.wait(timeout=3)
   except subprocess.TimeoutExpired:self.process.terminate();self.process.wait(timeout=3)
 

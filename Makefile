@@ -1,8 +1,10 @@
 MODE ?= demo
 PORT ?= 8765
-.PHONY: baseline lint test test-ui sim ui model check-preservation
+.PHONY: baseline baseline-hardware lint test test-ui sim ui model check-preservation
 baseline:
 	python3 scripts/run_baseline.py
+baseline-hardware:
+	python3 scripts/run_baseline_hardware.py
 lint:
 	verilator --lint-only --Wall --top-module TINYPROJECT -f sim/rtl.f
 test:
