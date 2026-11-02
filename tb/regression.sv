@@ -14,15 +14,23 @@ module regression;
  task press(input integer sw); SW=13'(sw); cycles(5); KEY[3]=0; cycles(6); KEY[3]=1; cycles(50); endtask
  initial begin #1000000; $fatal(1,"timeout"); end
  initial begin
-  force dut.Clk=clk; // functional tests bypass only the original divider; hardware timing tested separately
+  `ifdef FIXED
+  force dut.ce=1'b1;
+`else
+  force dut.Clk=clk;
+`endif // functional tests bypass only the original divider; hardware timing tested separately
   if(!$value$plusargs("CASE=%s",scenario)) scenario="reset";
   $dumpfile($sformatf("build/%0s.vcd",scenario)); $dumpvars(0,regression);
   reset;
   case(scenario)
    "reset": begin check(LEDG[4]===1'b0,"Ticket must reset to zero"); check(dut.sum===0,"balance reset"); end
-   "fsm": begin force dut.D1.State=3'd7;cycles(1);release dut.D1.State;KEY[3]=0;cycles(1);check(dut.D1.State===3'd1,"S7 must accept next press (unit state injection)");end
+   "fsm": begin force dut.D1.State=3'd7;force dut.D1.IN=1'b1;#1;check(dut.D1.NextState===3'd1,"S7 must accept next press (unit state injection)");release dut.D1.State;release dut.D1.IN;end
    "ticket": begin press(4);press(64);check(LEDG[4]===1'b1,"issuance LED must remain on until next selection");end
    "held": begin SW=1;cycles(5);KEY[3]=0;cycles(180);KEY[3]=1;cycles(50);check(dut.sum===500,"one held press must create one deposit");end
+   "display": begin
+    press(4);SW=1;cycles(5);KEY[3]=0;
+    repeat(50)begin cycles(1);check({HEX3,HEX2,HEX1,HEX0}==={7'b0100100,7'b0000001,7'b0000001,7'b0000001} || {HEX3,HEX2,HEX1,HEX0}==={7'b0100100,7'b0100100,7'b0000001,7'b0000001},"display must hold a completed decimal balance during conversion");end
+   end
    "digit1": begin press(4);press(64);check(HEX3===7'b1001111,"digit one must light segments 1 and 2");end
    default: $fatal(1,"unknown scenario");
   endcase

@@ -4,7 +4,7 @@ module short_press;
  reg [3:0] KEY=15;reg [12:0] SW=0;
  TINYPROJECT dut(.KEY(KEY),.CLOCK_50(clk),.SW(SW));
  initial begin
-  $dumpfile("build/short.vcd");$dumpvars(0,short_press);
+  $dumpfile("build/short.vcd");$dumpvars(0,dut.sum,dut.pending,dut.D1.State,dut.ce);
   KEY=14;repeat(5)@(negedge clk);KEY=15;
   SW=1;repeat(5)@(negedge clk);KEY[3]=0;repeat(5)@(negedge clk);KEY[3]=1;
   repeat(2200000)@(negedge clk);

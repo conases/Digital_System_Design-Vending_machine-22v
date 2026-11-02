@@ -1,3 +1,3 @@
 VCD info: dumpfile build/fsm.vcd opened for output.
-FATAL: tb/regression.sv:12:                              fsm: S7 must accept next press (unit state injection) sum=0 state=7 ticket=0
-       Time: 200000  Scope: regression.check
+FATAL: tb/regression.sv:12:                              fsm: S7 must accept next press (unit state injection) sum=0 state=7 ticket=x
+       Time: 161000  Scope: regression.check
