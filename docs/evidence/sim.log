@@ -1,0 +1,4 @@
+python3 scripts/build_model.py demo
+demo: 기존 RTL 모델 사용
+python3 scripts/run_scenario.py
+PASS representative: 5000 → ticket6 → 1700 → +1000 → 2700 → ticket7 insufficient; build/representative.vcd

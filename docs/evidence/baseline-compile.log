@@ -1,0 +1,7 @@
+legacy/source/TINYPROJECT.v:55: warning: implicit definition of wire 'tic'.
+warning: Some design elements have no explicit time unit and/or
+       : time precision. This may cause confusing timing results.
+       : Affected design elements are:
+       :   -- module LAB4c declared here: legacy/source/TINYPROJECT.v:185
+       :   -- module TINYPROJECT declared here: legacy/source/TINYPROJECT.v:1
+       :   -- module bin7seg declared here: legacy/source/TINYPROJECT.v:360

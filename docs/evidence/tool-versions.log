@@ -1,0 +1,11 @@
+ProductName:		macOS
+ProductVersion:		26.6.2
+BuildVersion:		25G83
+arm64
+Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101
+Python 3.12.0
+v20.11.1
+Apple clang version 16.0.0 (clang-1600.0.26.3)
+Target: arm64-apple-darwin25.6.0
+Thread model: posix
+InstalledDir: /Library/Developer/CommandLineTools/usr/bin

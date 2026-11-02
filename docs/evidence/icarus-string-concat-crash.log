@@ -1,0 +1,10 @@
+legacy/source/TINYPROJECT.v:55: warning: implicit definition of wire 'tic'.
+warning: Some design elements have no explicit time unit and/or
+       : time precision. This may cause confusing timing results.
+       : Affected design elements are:
+       :   -- module LAB4c declared here: legacy/source/TINYPROJECT.v:185
+       :   -- module TINYPROJECT declared here: legacy/source/TINYPROJECT.v:1
+       :   -- module bin7seg declared here: legacy/source/TINYPROJECT.v:360
+Assertion failed: (ivl_expr_value(expr) == IVL_VT_BOOL || ivl_expr_value(expr) == IVL_VT_VECTOR), function draw_eval_vec4, file eval_vec4.c, line 1360.
+sh: line 1: 22534 Done                    /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivlpp -L -Wredef-chg -F"/var/folders/zj/_68jt5ts1613knh331d1bvwh0000gn/T//ivrlg216926e9c" -f"/var/folders/zj/_68jt5ts1613knh331d1bvwh0000gn/T//ivrlg16926e9c" -p"/var/folders/zj/_68jt5ts1613knh331d1bvwh0000gn/T//ivrli16926e9c"
+     22535 Abort trap: 6           | /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivl -C"/var/folders/zj/_68jt5ts1613knh331d1bvwh0000gn/T//ivrlh16926e9c" -C"/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/vvp.conf" -- -

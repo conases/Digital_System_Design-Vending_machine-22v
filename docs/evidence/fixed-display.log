@@ -1,0 +1,3 @@
+VCD info: dumpfile build/display.vcd opened for output.
+PASS                          display
+tb/regression.sv:38: $finish called at 2480000 (1ps)

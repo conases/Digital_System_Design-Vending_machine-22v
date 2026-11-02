@@ -1,0 +1,3 @@
+VCD info: dumpfile build/reset.vcd opened for output.
+PASS                            reset
+tb/regression.sv:38: $finish called at 160000 (1ps)

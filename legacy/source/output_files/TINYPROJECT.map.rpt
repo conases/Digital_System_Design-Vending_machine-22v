@@ -1,0 +1,454 @@
+Analysis & Synthesis report for TINYPROJECT
+Mon Dec 12 00:04:58 2022
+Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |TINYPROJECT|LAB4c:D1|State
+  9. Registers Removed During Synthesis
+ 10. Removed Registers Triggering Further Register Optimizations
+ 11. General Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Parameter Settings for User Entity Instance: LAB4c:D1
+ 14. Port Connectivity Checks: "LAB4c:D1"
+ 15. Post-Synthesis Netlist Statistics for Top Partition
+ 16. Elapsed Time Per Partition
+ 17. Analysis & Synthesis Messages
+ 18. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Mon Dec 12 00:04:58 2022       ;
+; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
+; Revision Name                      ; TINYPROJECT                                 ;
+; Top-level Entity Name              ; TINYPROJECT                                 ;
+; Family                             ; Cyclone IV E                                ;
+; Total logic elements               ; 229                                         ;
+;     Total combinational functions  ; 227                                         ;
+;     Dedicated logic registers      ; 90                                          ;
+; Total registers                    ; 90                                          ;
+; Total pins                         ; 86                                          ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 0                                           ;
++------------------------------------+---------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; EP4CE115F29C7      ;                    ;
+; Top-level entity name                                            ; TINYPROJECT        ; TINYPROJECT        ;
+; Family name                                                      ; Cyclone IV E       ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processors 3-4         ;   0.0%      ;
++----------------------------+-------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                     ;
++----------------------------------+-----------------+------------------------+------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path       ; Library ;
++----------------------------------+-----------------+------------------------+------------------------------------+---------+
+; TINYPROJECT.v                    ; yes             ; User Verilog HDL File  ; C:/dsss/tiny project/TINYPROJECT.v ;         ;
++----------------------------------+-----------------+------------------------+------------------------------------+---------+
+
+
++------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                ;
++---------------------------------------------+--------------+
+; Resource                                    ; Usage        ;
++---------------------------------------------+--------------+
+; Estimated Total logic elements              ; 229          ;
+;                                             ;              ;
+; Total combinational functions               ; 227          ;
+; Logic element usage by number of LUT inputs ;              ;
+;     -- 4 input functions                    ; 123          ;
+;     -- 3 input functions                    ; 63           ;
+;     -- <=2 input functions                  ; 41           ;
+;                                             ;              ;
+; Logic elements by mode                      ;              ;
+;     -- normal mode                          ; 177          ;
+;     -- arithmetic mode                      ; 50           ;
+;                                             ;              ;
+; Total registers                             ; 90           ;
+;     -- Dedicated logic registers            ; 90           ;
+;     -- I/O registers                        ; 0            ;
+;                                             ;              ;
+; I/O pins                                    ; 86           ;
+;                                             ;              ;
+; Embedded Multiplier 9-bit elements          ; 0            ;
+;                                             ;              ;
+; Maximum fan-out node                        ; Clk_Down[19] ;
+; Maximum fan-out                             ; 71           ;
+; Total fan-out                               ; 1206         ;
+; Average fan-out                             ; 2.47         ;
++---------------------------------------------+--------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                          ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------+-------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name     ; Entity Name ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------+-------------+--------------+
+; |TINYPROJECT               ; 227 (170)           ; 90 (79)                   ; 0           ; 0            ; 0       ; 0         ; 86   ; 0            ; |TINYPROJECT            ; TINYPROJECT ; work         ;
+;    |LAB4c:D1|              ; 15 (15)             ; 11 (11)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TINYPROJECT|LAB4c:D1   ; LAB4c       ; work         ;
+;    |bin7seg:u0|            ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TINYPROJECT|bin7seg:u0 ; bin7seg     ; work         ;
+;    |bin7seg:u1|            ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TINYPROJECT|bin7seg:u1 ; bin7seg     ; work         ;
+;    |bin7seg:u2|            ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TINYPROJECT|bin7seg:u2 ; bin7seg     ; work         ;
+;    |bin7seg:u3|            ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TINYPROJECT|bin7seg:u3 ; bin7seg     ; work         ;
+;    |bin7seg:u4|            ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TINYPROJECT|bin7seg:u4 ; bin7seg     ; work         ;
+;    |bin7seg:u5|            ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TINYPROJECT|bin7seg:u5 ; bin7seg     ; work         ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------+-------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++--------------------------------------------------------------------------------------------------+
+; State Machine - |TINYPROJECT|LAB4c:D1|State                                                      ;
++----------+----------+----------+----------+----------+----------+----------+----------+----------+
+; Name     ; State.S7 ; State.S6 ; State.S5 ; State.S4 ; State.S3 ; State.S2 ; State.S1 ; State.S0 ;
++----------+----------+----------+----------+----------+----------+----------+----------+----------+
+; State.S0 ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ;
+; State.S1 ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 1        ; 1        ;
+; State.S2 ; 0        ; 0        ; 0        ; 0        ; 0        ; 1        ; 0        ; 1        ;
+; State.S3 ; 0        ; 0        ; 0        ; 0        ; 1        ; 0        ; 0        ; 1        ;
+; State.S4 ; 0        ; 0        ; 0        ; 1        ; 0        ; 0        ; 0        ; 1        ;
+; State.S5 ; 0        ; 0        ; 1        ; 0        ; 0        ; 0        ; 0        ; 1        ;
+; State.S6 ; 0        ; 1        ; 0        ; 0        ; 0        ; 0        ; 0        ; 1        ;
+; State.S7 ; 1        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 1        ;
++----------+----------+----------+----------+----------+----------+----------+----------+----------+
+
+
++---------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                              ;
++----------------------------------------+----------------------------------------+
+; Register name                          ; Reason for Removal                     ;
++----------------------------------------+----------------------------------------+
+; bin[0,1]                               ; Stuck at GND due to stuck port data_in ;
+; sum[0,1]                               ; Stuck at GND due to stuck port data_in ;
+; sum1[0,1]                              ; Stuck at GND due to stuck port data_in ;
+; LAB4c:D1|State~4                       ; Lost fanout                            ;
+; LAB4c:D1|State~5                       ; Lost fanout                            ;
+; LAB4c:D1|State~6                       ; Lost fanout                            ;
+; LAB4c:D1|State.S7                      ; Lost fanout                            ;
+; Total Number of Removed Registers = 10 ;                                        ;
++----------------------------------------+----------------------------------------+
+
+
++---------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                           ;
++------------------+---------------------------+----------------------------------------+
+; Register name    ; Reason for Removal        ; Registers Removed due to This Register ;
++------------------+---------------------------+----------------------------------------+
+; sum[1]           ; Stuck at GND              ; sum1[1]                                ;
+;                  ; due to stuck port data_in ;                                        ;
+; sum[0]           ; Stuck at GND              ; sum1[0]                                ;
+;                  ; due to stuck port data_in ;                                        ;
+; LAB4c:D1|State~4 ; Lost Fanouts              ; LAB4c:D1|State.S7                      ;
++------------------+---------------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 90    ;
+; Number of registers using Synchronous Clear  ; 5     ;
+; Number of registers using Synchronous Load   ; 12    ;
+; Number of registers using Asynchronous Clear ; 69    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 42    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                               ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------+
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |TINYPROJECT|sum1[3]           ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |TINYPROJECT|LAB4c:D1|count[2] ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |TINYPROJECT|bcd0[1]           ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |TINYPROJECT|bcd1[3]           ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |TINYPROJECT|bcd2[3]           ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |TINYPROJECT|bcd3[0]           ;
+; 5:1                ; 12 bits   ; 36 LEs        ; 24 LEs               ; 12 LEs                 ; Yes        ; |TINYPROJECT|sum[11]           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------+
+
+
++-------------------------------------------------------+
+; Parameter Settings for User Entity Instance: LAB4c:D1 ;
++----------------+-------+------------------------------+
+; Parameter Name ; Value ; Type                         ;
++----------------+-------+------------------------------+
+; S0             ; 000   ; Unsigned Binary              ;
+; S1             ; 001   ; Unsigned Binary              ;
+; S2             ; 010   ; Unsigned Binary              ;
+; S3             ; 011   ; Unsigned Binary              ;
+; S4             ; 100   ; Unsigned Binary              ;
+; S5             ; 101   ; Unsigned Binary              ;
+; S6             ; 110   ; Unsigned Binary              ;
+; S7             ; 111   ; Unsigned Binary              ;
++----------------+-------+------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "LAB4c:D1"                                                                           ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; done ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 86                          ;
+; cycloneiii_ff         ; 90                          ;
+;     CLR               ; 28                          ;
+;     ENA CLR           ; 25                          ;
+;     ENA CLR SCLR      ; 4                           ;
+;     ENA CLR SLD       ; 12                          ;
+;     ENA SCLR          ; 1                           ;
+;     plain             ; 20                          ;
+; cycloneiii_lcell_comb ; 233                         ;
+;     arith             ; 50                          ;
+;         2 data inputs ; 17                          ;
+;         3 data inputs ; 33                          ;
+;     normal            ; 183                         ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 10                          ;
+;         2 data inputs ; 19                          ;
+;         3 data inputs ; 30                          ;
+;         4 data inputs ; 123                         ;
+;                       ;                             ;
+; Max LUT depth         ; 6.00                        ;
+; Average LUT depth     ; 2.91                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+    Info: Processing started: Mon Dec 12 00:04:46 2022
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off TINYPROJECT -c TINYPROJECT
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 3 design units, including 3 entities, in source file tinyproject.v
+    Info (12023): Found entity 1: TINYPROJECT File: C:/dsss/tiny project/TINYPROJECT.v Line: 1
+    Info (12023): Found entity 2: LAB4c File: C:/dsss/tiny project/TINYPROJECT.v Line: 185
+    Info (12023): Found entity 3: bin7seg File: C:/dsss/tiny project/TINYPROJECT.v Line: 360
+Warning (10236): Verilog HDL Implicit Net warning at TINYPROJECT.v(55): created implicit net for "tic" File: C:/dsss/tiny project/TINYPROJECT.v Line: 55
+Info (12127): Elaborating entity "TINYPROJECT" for the top level hierarchy
+Warning (10230): Verilog HDL assignment warning at TINYPROJECT.v(62): truncated value with size 32 to match size of target (1) File: C:/dsss/tiny project/TINYPROJECT.v Line: 62
+Warning (10230): Verilog HDL assignment warning at TINYPROJECT.v(63): truncated value with size 32 to match size of target (1) File: C:/dsss/tiny project/TINYPROJECT.v Line: 63
+Warning (10230): Verilog HDL assignment warning at TINYPROJECT.v(64): truncated value with size 32 to match size of target (1) File: C:/dsss/tiny project/TINYPROJECT.v Line: 64
+Warning (10230): Verilog HDL assignment warning at TINYPROJECT.v(65): truncated value with size 32 to match size of target (1) File: C:/dsss/tiny project/TINYPROJECT.v Line: 65
+Info (10264): Verilog HDL Case Statement information at TINYPROJECT.v(80): all case item expressions in this case statement are onehot File: C:/dsss/tiny project/TINYPROJECT.v Line: 80
+Warning (10230): Verilog HDL assignment warning at TINYPROJECT.v(117): truncated value with size 14 to match size of target (13) File: C:/dsss/tiny project/TINYPROJECT.v Line: 117
+Warning (10230): Verilog HDL assignment warning at TINYPROJECT.v(121): truncated value with size 14 to match size of target (13) File: C:/dsss/tiny project/TINYPROJECT.v Line: 121
+Warning (10230): Verilog HDL assignment warning at TINYPROJECT.v(149): truncated value with size 32 to match size of target (4) File: C:/dsss/tiny project/TINYPROJECT.v Line: 149
+Warning (10230): Verilog HDL assignment warning at TINYPROJECT.v(151): truncated value with size 32 to match size of target (4) File: C:/dsss/tiny project/TINYPROJECT.v Line: 151
+Warning (10230): Verilog HDL assignment warning at TINYPROJECT.v(153): truncated value with size 32 to match size of target (4) File: C:/dsss/tiny project/TINYPROJECT.v Line: 153
+Warning (10230): Verilog HDL assignment warning at TINYPROJECT.v(155): truncated value with size 32 to match size of target (4) File: C:/dsss/tiny project/TINYPROJECT.v Line: 155
+Warning (10034): Output port "LEDG[7..5]" at TINYPROJECT.v(15) has no driver File: C:/dsss/tiny project/TINYPROJECT.v Line: 15
+Warning (10034): Output port "LEDG[3..0]" at TINYPROJECT.v(15) has no driver File: C:/dsss/tiny project/TINYPROJECT.v Line: 15
+Warning (10034): Output port "LEDR" at TINYPROJECT.v(17) has no driver File: C:/dsss/tiny project/TINYPROJECT.v Line: 17
+Info (12128): Elaborating entity "LAB4c" for hierarchy "LAB4c:D1" File: C:/dsss/tiny project/TINYPROJECT.v Line: 60
+Info (12128): Elaborating entity "bin7seg" for hierarchy "bin7seg:u0" File: C:/dsss/tiny project/TINYPROJECT.v Line: 173
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "LEDG[0]" is stuck at GND File: C:/dsss/tiny project/TINYPROJECT.v Line: 15
+    Warning (13410): Pin "LEDG[1]" is stuck at GND File: C:/dsss/tiny project/TINYPROJECT.v Line: 15
+    Warning (13410): Pin "LEDG[2]" is stuck at GND File: C:/dsss/tiny project/TINYPROJECT.v Line: 15
+    Warning (13410): Pin "LEDG[3]" is stuck at GND File: C:/dsss/tiny project/TINYPROJECT.v Line: 15
+    Warning (13410): Pin "LEDG[5]" is stuck at GND File: C:/dsss/tiny project/TINYPROJECT.v Line: 15
+    Warning (13410): Pin "LEDG[6]" is stuck at GND File: C:/dsss/tiny project/TINYPROJECT.v Line: 15
+    Warning (13410): Pin "LEDG[7]" is stuck at GND File: C:/dsss/tiny project/TINYPROJECT.v Line: 15
+    Warning (13410): Pin "LEDR[0]" is stuck at GND File: C:/dsss/tiny project/TINYPROJECT.v Line: 17
+    Warning (13410): Pin "LEDR[1]" is stuck at GND File: C:/dsss/tiny project/TINYPROJECT.v Line: 17
+    Warning (13410): Pin "LEDR[2]" is stuck at GND File: C:/dsss/tiny project/TINYPROJECT.v Line: 17
+    Warning (13410): Pin "LEDR[3]" is stuck at GND File: C:/dsss/tiny project/TINYPROJECT.v Line: 17
+    Warning (13410): Pin "LEDR[4]" is stuck at GND File: C:/dsss/tiny project/TINYPROJECT.v Line: 17
+    Warning (13410): Pin "LEDR[5]" is stuck at GND File: C:/dsss/tiny project/TINYPROJECT.v Line: 17
+    Warning (13410): Pin "LEDR[6]" is stuck at GND File: C:/dsss/tiny project/TINYPROJECT.v Line: 17
+    Warning (13410): Pin "LEDR[7]" is stuck at GND File: C:/dsss/tiny project/TINYPROJECT.v Line: 17
+    Warning (13410): Pin "LEDR[8]" is stuck at GND File: C:/dsss/tiny project/TINYPROJECT.v Line: 17
+    Warning (13410): Pin "LEDR[9]" is stuck at GND File: C:/dsss/tiny project/TINYPROJECT.v Line: 17
+    Warning (13410): Pin "LEDR[10]" is stuck at GND File: C:/dsss/tiny project/TINYPROJECT.v Line: 17
+    Warning (13410): Pin "LEDR[11]" is stuck at GND File: C:/dsss/tiny project/TINYPROJECT.v Line: 17
+    Warning (13410): Pin "LEDR[12]" is stuck at GND File: C:/dsss/tiny project/TINYPROJECT.v Line: 17
+    Warning (13410): Pin "LEDR[13]" is stuck at GND File: C:/dsss/tiny project/TINYPROJECT.v Line: 17
+    Warning (13410): Pin "LEDR[14]" is stuck at GND File: C:/dsss/tiny project/TINYPROJECT.v Line: 17
+    Warning (13410): Pin "LEDR[15]" is stuck at GND File: C:/dsss/tiny project/TINYPROJECT.v Line: 17
+    Warning (13410): Pin "LEDR[16]" is stuck at GND File: C:/dsss/tiny project/TINYPROJECT.v Line: 17
+    Warning (13410): Pin "LEDR[17]" is stuck at GND File: C:/dsss/tiny project/TINYPROJECT.v Line: 17
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 4 registers lost all their fanouts during netlist optimizations.
+Info (144001): Generated suppressed messages file C:/dsss/tiny project/output_files/TINYPROJECT.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 2 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "KEY[1]" File: C:/dsss/tiny project/TINYPROJECT.v Line: 3
+    Warning (15610): No output dependent on input pin "KEY[2]" File: C:/dsss/tiny project/TINYPROJECT.v Line: 3
+Info (21057): Implemented 318 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 18 input pins
+    Info (21059): Implemented 68 output pins
+    Info (21061): Implemented 232 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 44 warnings
+    Info: Peak virtual memory: 4789 megabytes
+    Info: Processing ended: Mon Dec 12 00:04:58 2022
+    Info: Elapsed time: 00:00:12
+    Info: Total CPU time (on all processors): 00:00:11
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in C:/dsss/tiny project/output_files/TINYPROJECT.map.smsg.
+
+

@@ -1,0 +1,3 @@
+VCD info: dumpfile build/display.vcd opened for output.
+FATAL: tb/regression.sv:12:                          display: display must hold a completed decimal balance during conversion sum=5500 state=2 ticket=0
+       Time: 1520000  Scope: regression.check

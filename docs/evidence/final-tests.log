@@ -1,0 +1,36 @@
+python3 scripts/check_preservation.py
+PASS 공개 원본 전체 SHA-256 및 로컬 비공개 보존 106개 확인
+python3 scripts/run_tests.py
+독립 기준: 81개 잔액, 729개 시나리오, 5022개 단계
+demo: 기존 RTL 모델 사용
+hardware: 기존 RTL 모델 사용
+PASS HEX4 connection
+tb/hex4_probe.sv:5: $finish called at 1000 (1ps)
+VCD info: dumpfile build/reset.vcd opened for output.
+PASS                            reset
+tb/regression.sv:38: $finish called at 160000 (1ps)
+VCD info: dumpfile build/fsm.vcd opened for output.
+PASS                              fsm
+tb/regression.sv:38: $finish called at 161000 (1ps)
+VCD info: dumpfile build/held.vcd opened for output.
+PASS                             held
+tb/regression.sv:38: $finish called at 4860000 (1ps)
+VCD info: dumpfile build/digit1.vcd opened for output.
+PASS                           digit1
+tb/regression.sv:38: $finish called at 2600000 (1ps)
+VCD info: dumpfile build/ticket.vcd opened for output.
+PASS                           ticket
+tb/regression.sv:38: $finish called at 2600000 (1ps)
+VCD info: dumpfile build/display.vcd opened for output.
+PASS                          display
+tb/regression.sv:38: $finish called at 2480000 (1ps)
+VCD info: dumpfile build/recovery.vcd opened for output.
+PASS                         recovery
+tb/regression.sv:38: $finish called at 161000 (1ps)
+VCD info: dumpfile build/short.vcd opened for output.
+PASS short hardware input capture
+tb/short_press.sv:17: $finish called at 44000300000 (1ps)
+PASS Icarus board oracle 5022 steps, four-state outputs and reset during transaction
+tb/board_regression.sv:36: $finish called at 20281340000 (1ps)
+PASS Verilator demo: 729 scenarios, 4293 transactions; ticket count 0..9 plus preserved overflow 10..16; held press; reset priority
+PASS Verilator hardware: first tick 524288, period 1048576; short press and complete 00500 display
