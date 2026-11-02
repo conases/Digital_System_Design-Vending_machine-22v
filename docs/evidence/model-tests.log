@@ -1,0 +1,2 @@
+PASS Verilator demo: 729 scenarios, 4293 transactions; ticket count 0..9 plus preserved overflow 10..16; held press; reset priority
+PASS Verilator hardware: first tick 524288, period 1048576; short press and complete 00500 display

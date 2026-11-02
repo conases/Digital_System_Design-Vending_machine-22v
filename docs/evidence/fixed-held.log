@@ -1,3 +1,3 @@
 VCD info: dumpfile build/held.vcd opened for output.
 PASS                             held
-tb/regression.sv:37: $finish called at 4860000 (1ps)
+tb/regression.sv:38: $finish called at 4860000 (1ps)

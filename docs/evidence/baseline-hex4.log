@@ -1,0 +1,2 @@
+tb/hex4_probe.sv:4: error: port ``HEX4'' is not a port of dut.
+1 error(s) during elaboration.

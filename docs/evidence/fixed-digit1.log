@@ -1,3 +1,3 @@
 VCD info: dumpfile build/digit1.vcd opened for output.
 PASS                           digit1
-tb/regression.sv:37: $finish called at 2600000 (1ps)
+tb/regression.sv:38: $finish called at 2600000 (1ps)

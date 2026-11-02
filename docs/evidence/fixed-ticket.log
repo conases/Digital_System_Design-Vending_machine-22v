@@ -1,3 +1,3 @@
 VCD info: dumpfile build/ticket.vcd opened for output.
 PASS                           ticket
-tb/regression.sv:37: $finish called at 2600000 (1ps)
+tb/regression.sv:38: $finish called at 2600000 (1ps)
