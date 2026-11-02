@@ -1,0 +1,3 @@
+VCD info: dumpfile build/short.vcd opened for output.
+FATAL: tb/short_press.sv:11: short press lost: expected 500 got 0
+       Time: 44000300000  Scope: short_press
